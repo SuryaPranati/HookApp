@@ -13,11 +13,11 @@ export const GLobalStyles = StyleSheet.create({
     },
 
     topLogo: {
-        height: '25%',
+        height: '20%',
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
 
     LoginTitle: {
@@ -28,12 +28,22 @@ export const GLobalStyles = StyleSheet.create({
         fontFamily: 'Archivo-Black-Regular'
     },
 
+    LoginTitleDesc: {
+        fontSize: 20,
+        color: '#dadada',
+        alignSelf: 'flex-start',
+        marginVertical: 4,
+        fontFamily: 'Arial-Rounded-Font'
+    },
+
     contentview: {
         width: '100%',
-        height: '75%',
+        height: '80%',
         paddingHorizontal: '6%',
+        paddingVertical: '10%',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'space-evenly'
     },
 
     applogotopbar: {
@@ -44,7 +54,7 @@ export const GLobalStyles = StyleSheet.create({
 
     authinput: {
         width: '100%',
-        height: 45,
+        height: 50,
         backgroundColor: '#fff',
         borderStyle: 'solid',
         borderColor: '#DEDEDE',

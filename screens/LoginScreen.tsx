@@ -1,28 +1,17 @@
 import React from 'react'
 import { GLobalStyles } from '../GlobalStyles';
 import logo from '../assets/images/applogo.png'
-import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import { Button, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
 export default function LoginScreen() {
-
     const navigation = useNavigation();
-
-    const [fontsLoader] = useFonts({
-        'Archivo-Black-Regular': require('../assets/fonts/Archivo-Black-Regular.ttf')
-    })
-
-    if (!fontsLoader) {
-        return undefined;
-    }
-
+ 
     return (
         <>
-            <StatusBar style='auto' />
             <SafeAreaView />
+            <StatusBar style='auto' />
             <View style={GLobalStyles.container}>
                 <View style={GLobalStyles.topLogo}>
                     <Image
@@ -32,9 +21,11 @@ export default function LoginScreen() {
                 <View style={GLobalStyles.contentview}>
                     <Text style={GLobalStyles.LoginTitle}>Welcome</Text>
                     <Text style={GLobalStyles.LoginTitle}>back!</Text>
+                    <Text style={GLobalStyles.LoginTitleDesc}>Login to continue</Text>
 
                     <TextInput style={GLobalStyles.authinput} placeholder='Username' />
-                    <TextInput style={GLobalStyles.authinput} placeholder='Password' />
+
+                    <TextInput style={GLobalStyles.authinput} secureTextEntry placeholder='Password' />
 
                     <TouchableOpacity style={GLobalStyles.primarybtn}>
                         <Text style={GLobalStyles.primarybtntitle}>Login</Text>
