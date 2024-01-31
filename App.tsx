@@ -1,51 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, ViewBase, TouchableOpacity } from 'react-native';
-import { GLobalStyles } from './GlobalStyles';
-import logo from './assets/images/applogo.png'
-import { useFonts } from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import LoginScreen from "./screens/LoginScreen";
+import SignupScreen from "./screens/SignupScreen";
+
+
+const Stack = createStackNavigator();
+
 
 export default function App() {
-  const [fontsLoader] = useFonts({
-    'Archivo-Black-Regular': require('./assets/fonts/Archivo-Black-Regular.ttf')
-  })
-
-  if (!fontsLoader) {
-    return undefined;
-  }
 
   return (
-    <>
-      <StatusBar style="auto" />
-      <SafeAreaView />
-      <View style={GLobalStyles.container}>
-        <View style={GLobalStyles.topLogo}>
-          <Image
-            style={GLobalStyles.applogotopbar}
-            source={logo} />
-        </View>
-        <View style={GLobalStyles.contentview}>
-          <Text style={GLobalStyles.LoginTitle}>Welcome</Text>
-          <Text style={GLobalStyles.LoginTitle}>back!</Text>
-
-          <TextInput style={GLobalStyles.authinput} placeholder='Username' />
-          <TextInput style={GLobalStyles.authinput} placeholder='Password' />
-
-          <TouchableOpacity style={GLobalStyles.primarybtn}>
-            <Text style={GLobalStyles.primarybtntitle}>Login</Text>
-          </TouchableOpacity>
-
-          <Text style={GLobalStyles.rulerwithtext}> ────  or  ────</Text>
-
-          <TouchableOpacity style={GLobalStyles.secondarybtn}>
-            <Text style={GLobalStyles.secondarybtntitle}>Continue with Facebook</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={GLobalStyles.secondarybtn}>
-            <Text style={GLobalStyles.secondarybtntitle}>Continue with Google</Text>
-          </TouchableOpacity>
-
-          <Text style={GLobalStyles.linkabletext}>Don't have an account? <Text style={GLobalStyles.textlink}>Signup </Text>here</Text>
-        </View>
-      </View>
-    </>
-  );
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Signup" component={SignupScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
