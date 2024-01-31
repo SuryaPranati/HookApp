@@ -2,8 +2,17 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, ViewBase, TouchableOpacity } from 'react-native';
 import { GLobalStyles } from './GlobalStyles';
 import logo from './assets/images/applogo.png'
+import { useFonts } from 'expo-font';
 
 export default function App() {
+  const [fontsLoader] = useFonts({
+    'Archivo-Black-Regular': require('./assets/fonts/Archivo-Black-Regular.ttf')
+  })
+
+  if (!fontsLoader) {
+    return undefined;
+  }
+
   return (
     <>
       <StatusBar style="auto" />
